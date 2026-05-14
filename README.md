@@ -50,7 +50,5 @@ The project uses MySQL database:
 ---
 
 ## Team Members
-
-- Your Name
-- Team Member 2
-- Team Member 3
+1. Masa daraghmeh
+2. Yomna Dwikat 
