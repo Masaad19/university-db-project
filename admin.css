@@ -1,0 +1,73 @@
+body{
+    margin:0;
+    font-family:Segoe UI;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+}
+
+/* Navbar */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.navbar nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.navbar nav a:hover{
+    color:#4facfe;
+}
+
+/* Main Container */
+
+.container{
+    padding:40px;
+}
+
+.container h1{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+/* Grid */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* Cards */
+
+.card{
+    background:rgba(255,255,255,0.1);
+    padding:35px 20px;
+    border-radius:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    transition:0.3s;
+    cursor:pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.2);
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Materials</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+    }
+
+    .header {
+        text-align: center;
+        padding: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .filter {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    select {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .course {
+        font-size: 14px;
+        opacity: 0.8;
+        margin-bottom: 10px;
+    }
+
+    .type {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .desc {
+        font-size: 13px;
+        margin-bottom: 15px;
+        opacity: 0.85;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .open-btn {
+        background: #4facfe;
+        color: white;
+    }
+
+    .save-btn {
+        background: #00c6ff;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">Support Materials</div>
+
+<div class="filter">
+    <select id="courseFilter" onchange="filterData()">
+        <option value="all">All Courses</option>
+        <option value="network">Computer Networks</option>
+        <option value="database">Database</option>
+        <option value="image">Image Processing</option>
+        <option value="discrete">Discrete Math</option>
+    </select>
+</div>
+
+<div class="container" id="container"></div>
+
+<script>
+
+const supportMaterials = [
+    {
+        title: "OSI Model Summary",
+        course: "network",
+        type: "Summary",
+        desc: "Short explanation of OSI layers",
+        link: "files/osi-summary.pdf"
+    },
+    {
+        title: "Networking Playlist",
+        course: "network",
+        type: "Video",
+        desc: "شرح كامل للمادة من اليوتيوب",
+        link: "https://youtube.com"
+    },
+    {
+        title: "ER Diagram Cheat Sheet",
+        course: "database",
+        type: "Notes",
+        desc: "مهم للامتحان 🔥",
+        link: "files/er-cheat.pdf"
+    },
+    {
+        title: "Normalization Tricks",
+        course: "database",
+        type: "Tips",
+        desc: "طرق سهلة لحل الاسئلة",
+        link: "files/norm-tips.pdf"
+    },
+    {
+        title: "Histogram Explained",
+        course: "image",
+        type: "Video",
+        desc: "شرح مبسط + أمثلة",
+        link: "https://youtube.com"
+    }
+];
+
+function display(list) {
+    const container = document.getElementById("container");
+    container.innerHTML = "";
+
+    list.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <div class="title">${item.title}</div>
+            <div class="course">${item.course}</div>
+            <div class="type">${item.type}</div>
+            <div class="desc">${item.desc}</div>
+
+            <div class="buttons">
+                <button class="open-btn" onclick="openLink('${item.link}')">Open</button>
+                <button class="save-btn" onclick="saveItem('${item.title}')">Save</button>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function filterData() {
+    const selected = document.getElementById("courseFilter").value;
+
+    if (selected === "all") {
+        display(supportMaterials);
+    } else {
+        const filtered = supportMaterials.filter(i => i.course === selected);
+        display(filtered);
+    }
+}
+
+function openLink(link) {
+    window.open(link, "_blank");
+}
+
+function saveItem(title) {
+    alert(title + " saved to favorites ⭐");
+}
+
+// first load
+display(supportMaterials);
+
+</script>
+
+</body>
+</html>

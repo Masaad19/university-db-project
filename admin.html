@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">UASS Admin</div>
+    <nav>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="grid">
+
+        <div class="card" onclick="goTo('manage-students.php')">👩‍🎓 Manage Students</div>
+
+        <div class="card" onclick="goTo('manage-instructors.php')">👨‍🏫 Manage Instructors</div>
+
+        <div class="card" onclick="goTo('manage-departments.php')">🏛 Manage Departments</div>
+
+        <div class="card" onclick="goTo('manage-courses.php')">📚 Manage Courses</div>
+
+        <div class="card" onclick="goTo('manage-accounts.php')">💻 Manage Accounts</div>
+
+    </div>
+
+</div>
+
+<script>
+function goTo(page){
+    window.location.href = page;
+}
+</script>
+
+</body>
+</html>
